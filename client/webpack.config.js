@@ -1,8 +1,14 @@
 
 const path = require("path");
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin')
 
-module.exports = {
+module.exports = env => {
+  
+  console.log('NODE_ENV: ', env.NODE_ENV); // prod or dev
+  console.log('Production: ', env.production); // true or false
+
+  var config = {
     entry: "./src/index.js",
     output: {
       path: path.join(__dirname, "/dist"),
@@ -17,15 +23,27 @@ module.exports = {
             loader: "babel-loader"
           },
         },
+        
         {
           test: /\.css$/,
           use: ["style-loader", "css-loader"]
         }
       ]
     },     
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: "./public/index.html",
-    })
-  ]
+    optimization = {
+      minimize: env.production
+    },
+    plugins: [
+      new CaseSensitivePathsPlugin(),
+      new HtmlWebpackPlugin({
+        template: "./public/index.html",
+      })
+    ]    
+  };
+
+  if (env.NODE_ENV === 'dev') {
+    config.devtool = 'eval-source-map';   
+  }
+
+   return config;
   };
