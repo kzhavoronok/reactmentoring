@@ -9,7 +9,7 @@ module.exports = env => {
   console.log('Production: ', env.production); // true or false
 
   var config = {
-    entry: "./src/index.js",
+    entry: "./src/index.jsx",
     output: {
       path: path.join(__dirname, "/dist"),
       filename: "index_bundle.js"
