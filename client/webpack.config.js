@@ -17,7 +17,7 @@ module.exports = env => {
     module: {
       rules: [
         {
-          test: /\.js$/,
+          test: /\.(j|t)sx?$/,
           exclude: /node_modules/,
           use: {
             loader: "babel-loader"
@@ -29,9 +29,6 @@ module.exports = env => {
           use: ["style-loader", "css-loader"]
         }
       ]
-    },     
-    optimization = {
-      minimize: env.production
     },
     plugins: [
       new CaseSensitivePathsPlugin(),
@@ -43,6 +40,13 @@ module.exports = env => {
 
   if (env.NODE_ENV === 'dev') {
     config.devtool = 'eval-source-map';   
+  }
+
+  if (env.NODE_ENV ==='prod')
+  {
+    config.optimization = {
+      minimize: true
+    }
   }
 
    return config;
