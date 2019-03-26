@@ -5,7 +5,7 @@ import { withStyles } from '@material-ui/core/styles';
 import classNames from 'classnames';
 import styles from '../../styles';
 
-import MovieCard from '../MovieCard'
+import MovieCard from '../MovieCard/MovieCard'
 
 class MoviesList extends React.Component { 
  
