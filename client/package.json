@@ -6,8 +6,8 @@
   "scripts": {
     "build:dev": "webpack --env.NODE_ENV dev --env.production false",
     "build:prod": "webpack --mode production --env.NODE_ENV prod --env.production",
-    "start:dev": "webpack-dev-server --env.NODE_ENV dev --env.production false --open --hot", 
-    "start:prod": "webpack-dev-server --mode production --env.NODE_ENV prod --env.production --open --hot",      
+    "start:dev": "webpack-dev-server --env.NODE_ENV dev --env.production false --open --hot",
+    "start:prod": "webpack-dev-server --mode production --env.NODE_ENV prod --env.production --open --hot",
     "test": "jest"
   },
   "repository": {
@@ -21,6 +21,8 @@
   },
   "homepage": "https://github.com/kzhavoronok/reactmentoring#readme",
   "dependencies": {
+    "@material-ui/core": "^3.9.2",
+    "@material-ui/icons": "^3.0.2",
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
