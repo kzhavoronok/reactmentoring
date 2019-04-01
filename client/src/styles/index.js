@@ -65,6 +65,11 @@ const styles = theme => ({
       textAlign: 'center',
       color: theme.palette.text.secondary,
     },
+    notfoundpaper: {
+      padding: theme.spacing.unit * 6,
+      textAlign: 'center',
+      color: theme.palette.text.secondary
+    },
     searchButton:{
       //TODO: выровнять кнопочку
     }

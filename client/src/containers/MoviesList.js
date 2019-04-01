@@ -3,19 +3,21 @@ import PropTypes from 'prop-types';
 import Grid from '@material-ui/core/Grid';
 import { withStyles } from '@material-ui/core/styles';
 import classNames from 'classnames';
-import styles from '../../styles';
+import styles from '../styles';
 
-import MovieCard from '../MovieCard/MovieCard'
+import MovieCard from './MovieCard'
 
 class MoviesList extends React.Component { 
- 
-  render(){
-    const { classes, movies} = this.props;
   
+  render(){
+    
+    const { classes, movies} = this.props;  
+    const movieCards = movies.map((movie)=><MovieCard key={movie.id} movie={movie}/>)
+
     return (
       <div className={classNames(classes.layout, classes.cardGrid)}>
         <Grid container spacing={40}> 
-          { movies.data.map((movie)=><MovieCard key={movie.id} movie={movie}/>)}
+          {movieCards}
         </Grid>
       </div>
     )

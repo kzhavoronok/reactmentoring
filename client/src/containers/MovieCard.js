@@ -1,34 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Card from '@material-ui/core/Card';
-import CardMedia from '@material-ui/core/CardMedia';
 import Grid from '@material-ui/core/Grid';
+import FilmCover from '../components/FilmCover';
+import ItemTitle from '../components/ItemTitle';
+import ItemGenre from '../components/ItemGenre';
+import ItemReleaseDate from '../components/ItemReleaseDate';
 import { withStyles } from '@material-ui/core/styles';
 import styles from '../styles';
-import CardHeader from '@material-ui/core/CardHeader';
-import { CardContent } from '@material-ui/core';
 
 class MovieCard extends React.Component { 
  
-  render(){
+  render() {
     const { classes, movie} = this.props;
   
     return (
       <>   
         <Grid item key={movie} sm={6} md={4} lg={3}>
           <Card className={classes.card}>
-            <CardMedia
-              className={classes.cardMedia}
-              image={movie.poster_path} // eslint-disable-line max-len
-              title={movie.title}
-            />
-            <CardHeader
-            title={movie.title}
-            subheader={movie.genres.join(' / ')}   
-            /> 
-            <CardHeader
-              subheader={movie.release_date}   
-            /> 
+              <FilmCover className={classes.cardMedia} movie={movie}/>
+              <ItemTitle title={movie.title}/>
+              <ItemReleaseDate releaseDate={movie.release_date}/>
+              <ItemGenre genres={movie.genres}/>              
           </Card>
         </Grid>    
       </>
